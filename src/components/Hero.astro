@@ -1,0 +1,34 @@
+---
+import perfile from '../assets/perfile.jpg'
+import Bluesky from '../Icons/Bluesky.astro'
+import Github from '../Icons/Github.astro'
+import Linkedln from '../Icons/Linkedln.astro'
+
+---
+
+
+<section id="hero" >
+    <div class="w-[1120px] mx-auto flex justify-center items-center flex-col gap-3 py-20 md:py-32">
+        <img src={perfile.src} alt="perfile" class="w-30 h-30 rounded-full" />
+        <h1 class="text-4xl font-bold">Hello, my name is <span class="">Ivan Pacheco</span>
+        </h1>
+        <p class="mt-2 text-lg">A blog about web development, programming, and tech.</p>
+        <ul class="flex gap-4">
+            <li>
+                <a href="https://www.linkedin.com/in/ivan-pacheco-59072a349/">
+                    <Linkedln class="w-7 h-7 cursor-pointer"/>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/leonardops23">
+                    <Github class="w-7 h-7 cursor-pointer"/>
+                </a>
+            </li>
+            <li>
+                <a href="https://bsky.app/profile/leonardps.bsky.social">
+                    <Bluesky class="w-7 h-7 cursor-pointer"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
