@@ -1,27 +1,21 @@
-<header class="flex justify-between items-center py-4 w-[1120px] mx-auto">
+<header class="flex justify-between items-center py-4 max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
     <div id="logo">
         <a href="/" class="text-2xl font-bold">
             <span class="text-white">DEV</span>
             <span class="text-gray-400">Tolds</span>
         </a>
     </div>
-    
+
     <nav>
-        <ul class="flex space-x-8 bg-red-950 p-3 rounded-4xl backdrop-blur-sm font-bold">
+        <ul class="hidden sm:flex space-x-6 bg-red-950 p-3 rounded-3xl backdrop-blur-sm font-bold">
             <li>
-                <a href="/" class="text-white hover:text-gray-400 transition-colors duration-300">
-                    Home
-                </a>
+                <a href="/" class="text-white hover:text-gray-400 transition-colors duration-300">Home</a>
             </li>
             <li>
-                <a href="/about" class="text-gray-300 hover:text-gray-400 transition-colors duration-300">
-                    About
-                </a>
+                <a href="/about" class="text-gray-300 hover:text-gray-400 transition-colors duration-300">About</a>
             </li>
             <li>
-                <a href="/contact" class="text-gray-300 hover:text-gray-400 transition-colors duration-300">
-                    Contact
-                </a>
+                <a href="/contact" class="text-gray-300 hover:text-gray-400 transition-colors duration-300">Contact</a>
             </li>
         </ul>
     </nav>
@@ -40,4 +34,36 @@
             </svg>
         </a>
     </div>
+    
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button" class="sm:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden absolute top-16 left-0 w-full bg-red-950 p-4 backdrop-blur-sm">
+        <ul class="flex flex-col space-y-4 text-center font-bold">
+            <li>
+                <a href="/" class="text-white hover:text-gray-400 transition-colors duration-300">Home</a>
+            </li>
+            <li>
+                <a href="/about" class="text-gray-300 hover:text-gray-400 transition-colors duration-300">About</a>
+            </li>
+            <li>
+                <a href="/contact" class="text-gray-300 hover:text-gray-400 transition-colors duration-300">Contact</a>
+            </li>
+        </ul>
+    </div>
 </header>
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>

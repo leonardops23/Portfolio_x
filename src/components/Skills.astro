@@ -1,0 +1,21 @@
+---
+const skills = [
+    { name: 'JavaScript', level: 'Advanced' },
+    { name: 'HTML', level: 'Advanced' },
+    { name: 'CSS', level: 'Advanced' },
+    { name: 'React', level: 'Intermediate' },
+    { name: 'Node.js', level: 'Intermediate' },
+    { name: 'Python', level: 'Intermediate' },
+];
+---
+
+<section id="skills" class="mx-auto p-4">
+    <h2>Skills</h2>
+    <ul>
+        {skills.map(skill => (
+            <li>
+                <strong>{skill.name}</strong>: {skill.level}
+            </li>
+        ))}
+    </ul>
+</section>
