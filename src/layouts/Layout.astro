@@ -1,35 +1,36 @@
 ---
-import '../styles/global.css';
+import Nav from "../compoents/nav.astro";
+import "../styles/global.css";
+import '@fontsource/twinkle-star';
 ---
-
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Astro Basics</title>
+  </head>
+  <body class="md:px-48 lg:px-20 px-9"></body>
+    <Nav />
+    <slot />
+  </body>
 </html>
 
-<style>
-    html,
-    body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        background: rgb(27,26,27);
-        background: radial-gradient(circle, rgba(27,26,27,1) 0%, rgb(34, 4, 3) 100%);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        color: white;
-        font-family: system-ui, -apple-system, sans-serif;
-        max-width: 100%;
-    }
+<style is:global>
+  :root{
+    --background: #101010;
+    --white-font: #ececec;
+    color-scheme: dark light;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background);
+    color: var(--white-font);
+  }
 </style>
