@@ -1,5 +1,5 @@
 ---
-import Nav from "../compoents/nav.astro";
+import Header from "../components/header.astro";
 import "../styles/global.css";
 import '@fontsource/twinkle-star';
 ---
@@ -12,25 +12,37 @@ import '@fontsource/twinkle-star';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
     <title>Astro Basics</title>
   </head>
-  <body class="md:px-48 lg:px-20 px-9"></body>
-    <Nav />
-    <slot />
+  <body>
+    <div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+    <Header />
+      <slot />
   </body>
 </html>
 
 <style is:global>
-  :root{
-    --background: #101010;
-    --white-font: #ececec;
-    color-scheme: dark light;
+  :root {
+    color-scheme: light dark;
+
+    --bg-color1: #1B1C25;
+    --bg-color2: #2563EB;
+
+    --font-color1: #61A4FA;
+    --font-color2: #D5D4D9;
+    --font-color3: #F5F6FF;
+    --font-color4: #8B8C9F;
   }
+
   body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--background);
-    color: var(--white-font);
+    background-color: black;
+    font-family: "Atkinson Hyperlegible Mono", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
   }
 </style>
