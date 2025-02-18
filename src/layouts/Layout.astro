@@ -1,44 +1,50 @@
 ---
 import Header from "../components/header.astro";
 import "../styles/global.css";
-import '@fontsource/twinkle-star';
+import "@fontsource/twinkle-star";
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <title>Astro Basics</title>
-  </head>
-  <body>
-    <div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-    <Header />
-      <slot />
-  </body>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+        <title>Astro Basics</title>
+    </head>
+    <body>
+        <div
+            class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+        >
+        </div>
+        <Header />
+        <slot />
+    </body>
 </html>
 
 <style is:global>
-  :root {
-    color-scheme: light dark;
+    :root {
+        color-scheme: light dark;
 
-    --bg-color1: #1B1C25;
-    --bg-color2: #2563EB;
+        --bg-color1: #1b1c25;
+        --bg-color2: #2563eb;
 
-    --font-color1: #61A4FA;
-    --font-color2: #D5D4D9;
-    --font-color3: #F5F6FF;
-    --font-color4: #8B8C9F;
-    --font-color5: #9f998b;
-  }
+        --font-color1: #61a4fa;
+        --font-color2: #d5d4d9;
+        --font-color3: #f5f6ff;
+        --font-color4: #8b8c9f;
+        --font-color5: #9f998b;
+    }
 
-  body {
-    font-family: "Open Sans", serif;
-  }
+    body {
+        font-family: "Open Sans", serif;
+    }
 </style>
