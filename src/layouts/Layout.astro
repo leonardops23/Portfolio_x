@@ -1,5 +1,5 @@
 ---
-import Header from "../components/header.astro";
+import Header from "../components/Header.astro";
 import "../styles/global.css";
 import "@fontsource/twinkle-star";
 ---
@@ -21,10 +21,7 @@ import "@fontsource/twinkle-star";
         <title>Astro Basics</title>
     </head>
     <body>
-        <div
-            class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-        >
-        </div>
+        <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div></div>
         <Header />
         <slot />
     </body>
@@ -32,19 +29,84 @@ import "@fontsource/twinkle-star";
 
 <style is:global>
     :root {
-        color-scheme: light dark;
-
-        --bg-color1: #1b1c25;
-        --bg-color2: #2563eb;
-
-        --font-color1: #61a4fa;
-        --font-color2: #d5d4d9;
-        --font-color3: #f5f6ff;
-        --font-color4: #8b8c9f;
-        --font-color5: #9f998b;
+        --bg-color1: #0a0a0a;  // Negro más puro
+        --bg-color2: #1a1a1a;  // Gris oscuro
+        --accent-color: hsl(265, 100%, 60%);  // Púrpura neón
+        --gradient-color: hsl(265, 100%, 60%, 0.1);
+        
+        --font-color1: #f5f6ff;
+        --font-color2: #e2e1e6;
+        --font-color3: #a1a1aa;
     }
 
     body {
-        font-family: "Open Sans", serif;
+        font-family: "Open Sans", sans-serif;
+        background-color: var(--bg-color1);
+        color: var(--font-color2);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .gradient-bg {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        z-index: -1;
+    }
+    
+    .gradient-blur {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+    
+    .gradient-blur::before,
+    .gradient-blur::after {
+        content: '';
+        position: absolute;
+        filter: blur(150px);
+        opacity: 0.3;
+    }
+    
+    .gradient-blur::before {
+        background: radial-gradient(
+            circle at 50% 50%,
+            var(--accent-color),
+            transparent 60%
+        );
+        width: 50vmax;
+        height: 50vmax;
+        left: -10%;
+        top: -10%;
+    }
+    
+    .gradient-blur::after {
+        background: radial-gradient(
+            circle at 30% 60%,
+            var(--gradient-color),
+            transparent 50%
+        );
+        width: 40vmax;
+        height: 40vmax;
+        right: -15%;
+        bottom: -10%;
     }
 </style>
+
+<body>
+    <div class="gradient-bg">
+        <div class="gradient-blur"></div>
+    </div>
+    
+    <div class="relative h-full w-full">
+        <div class="absolute inset-0 bg-[url('/assets/noise.png')] opacity-10 mix-blend-soft-light"></div>
+    </div>
+
+    <Header />
+    
+    <main class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
+        <slot />
+    </main>
+</body>
